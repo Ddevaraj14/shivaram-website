@@ -2,45 +2,9 @@
 
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
+import { siteContent } from '@/data/content'
 
-const principles = [
-  {
-    number: '01',
-    title: 'Design as Strategic Capability',
-    description:
-      'Design is not a service function. It is a strategic business capability that should shape product direction, influence company strategy, and create durable competitive advantage. I build design organisations that operate at board level.',
-  },
-  {
-    number: '02',
-    title: 'Product-Led Experience Thinking',
-    description:
-      'Great experiences emerge when design and product think together from day one — not when design is handed a spec to make beautiful. I advocate for experience-led product development where UX drives product decisions.',
-  },
-  {
-    number: '03',
-    title: 'AI-Powered Personalisation',
-    description:
-      'The future of digital experience is adaptive, predictive, and deeply personal. I believe in designing systems — not screens — where AI enhances human connection rather than replacing it.',
-  },
-  {
-    number: '04',
-    title: 'Human-Centred Innovation',
-    description:
-      'Technology without empathy is just engineering. Every experience decision must be grounded in genuine human need, cultural context, and real-world behaviour — especially at global scale.',
-  },
-  {
-    number: '05',
-    title: 'Cross-Functional Influence',
-    description:
-      'Design leaders must fluently speak the languages of engineering, product, business, and strategy. Influence without authority is the most powerful leadership skill in complex organisations.',
-  },
-  {
-    number: '06',
-    title: 'Building Design Organisations',
-    description:
-      'Teams are the most important design output. I invest deeply in hiring exceptional talent, creating psychological safety, establishing craft standards, and building cultures where designers do their best work.',
-  },
-]
+const principles = siteContent.leadershipSection.principles
 
 const fadeUp = {
   initial: { opacity: 0, y: 28 },
@@ -67,7 +31,7 @@ export default function LeadershipSection() {
             >
               <div className="h-px w-8 bg-violet" />
               <span className="text-violet text-xs font-semibold tracking-widest uppercase">
-                Leadership Philosophy
+                {siteContent.leadershipSection.eyebrow}
               </span>
             </motion.div>
             <motion.h2
@@ -77,10 +41,10 @@ export default function LeadershipSection() {
               transition={{ duration: 0.7, delay: 0.1 }}
               className="text-4xl sm:text-5xl font-black text-ink-100 leading-tight tracking-tight"
             >
-              How I Build
+              {siteContent.leadershipSection.titleLine1}
               <br />
               <span style={{ backgroundImage: 'linear-gradient(135deg, #F2F2F2, #9B7FEA)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-                World-Class Design
+                {siteContent.leadershipSection.titleLine2}
               </span>
             </motion.h2>
           </div>
@@ -93,9 +57,7 @@ export default function LeadershipSection() {
           >
             <blockquote className="border-l-2 border-violet pl-6">
               <p className="text-ink-200 text-xl font-light leading-relaxed italic">
-                &ldquo;The best design leaders don&apos;t just make beautiful things. They build the
-                conditions in which beautiful, impactful things can be made — at scale, consistently,
-                across time.&rdquo;
+                &ldquo;{siteContent.leadershipSection.quote}&rdquo;
               </p>
             </blockquote>
           </motion.div>

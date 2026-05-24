@@ -3,14 +3,9 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
+import { siteContent } from '@/data/content'
 
-const navLinks = [
-  { label: 'About', href: '#about' },
-  { label: 'Work', href: '#case-studies' },
-  { label: 'Leadership', href: '#leadership' },
-  { label: 'Insights', href: '#insights' },
-  { label: 'Contact', href: '#contact' },
-]
+const navLinks = siteContent.navigation.links
 
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false)
@@ -47,10 +42,12 @@ export default function Navigation() {
             className="flex items-center gap-2 group"
           >
             <div className="w-8 h-8 rounded-md bg-electric/10 border border-electric/20 flex items-center justify-center group-hover:bg-electric/20 transition-colors duration-200">
-              <span className="text-electric text-sm font-bold tracking-tight">SK</span>
+              <svg viewBox={siteContent.brand.logoSvg.viewBox} className="w-5 h-5 text-electric" fill="currentColor" aria-hidden="true">
+                <path d={siteContent.brand.logoSvg.path} />
+              </svg>
             </div>
             <span className="text-ink-100 font-semibold text-sm hidden sm:block tracking-wide">
-              Shivaram Kotari
+              {siteContent.brand.fullName}
             </span>
           </button>
 
@@ -67,10 +64,10 @@ export default function Navigation() {
               </button>
             ))}
             <a
-              href="/resume.pdf"
+              href={siteContent.assets.resumeFile}
               className="ml-2 px-4 py-2 rounded-md border border-ink-500 text-ink-200 text-sm font-medium hover:border-electric hover:text-electric transition-all duration-200"
             >
-              Resume
+              {siteContent.navigation.desktopResumeLabel}
             </a>
           </nav>
 
@@ -109,10 +106,10 @@ export default function Navigation() {
                 </motion.button>
               ))}
               <a
-                href="/resume.pdf"
+                href={siteContent.assets.resumeFile}
                 className="mt-2 px-4 py-2.5 rounded-md border border-ink-500 text-ink-200 text-sm font-medium text-center hover:border-electric hover:text-electric transition-all"
               >
-                Download Resume
+                {siteContent.navigation.mobileResumeLabel}
               </a>
             </nav>
           </motion.div>

@@ -2,7 +2,7 @@
 
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { achievements } from '@/data/content'
+import { achievements, siteContent } from '@/data/content'
 import { Award } from 'lucide-react'
 
 const fadeUp = {
@@ -28,7 +28,7 @@ export default function AchievementsSection() {
         >
           <div className="h-px w-8 bg-violet" />
           <span className="text-violet text-xs font-semibold tracking-widest uppercase">
-            Recognition
+            {siteContent.achievementsSection.eyebrow}
           </span>
         </motion.div>
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-16">
@@ -39,7 +39,7 @@ export default function AchievementsSection() {
             transition={{ duration: 0.7, delay: 0.1 }}
             className="text-4xl sm:text-5xl font-black text-ink-100 leading-tight tracking-tight"
           >
-            Awards &amp; Recognition
+            {siteContent.achievementsSection.title}
           </motion.h2>
           <motion.p
             variants={fadeUp}
@@ -48,7 +48,7 @@ export default function AchievementsSection() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="text-ink-400 text-sm max-w-xs"
           >
-            Industry-recognised leadership in design innovation, OTT excellence, and strategic impact.
+            {siteContent.achievementsSection.description}
           </motion.p>
         </div>
 

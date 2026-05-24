@@ -3,6 +3,7 @@
 import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { ArrowDown, ExternalLink } from 'lucide-react'
+import { siteContent } from '@/data/content'
 
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -83,7 +84,7 @@ export default function Hero() {
         >
           <div className="h-px w-10 bg-electric" />
           <span className="text-electric text-sm font-medium tracking-widest uppercase">
-            Design Executive
+            {siteContent.hero.eyebrow}
           </span>
         </motion.div>
 
@@ -94,9 +95,9 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black text-ink-100 leading-none tracking-tight mb-6"
         >
-          Shivaram
+          {siteContent.hero.headlineLine1}
           <br />
-          <span className="gradient-text">Kotari</span>
+          <span className="gradient-text">{siteContent.hero.headlineLine2}</span>
         </motion.h1>
 
         {/* Tagline */}
@@ -106,10 +107,11 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.5 }}
           className="text-ink-300 text-lg sm:text-xl md:text-2xl max-w-2xl leading-relaxed font-light mb-12"
         >
-          Shaping AI-driven product experiences across global digital ecosystems.
+          {siteContent.hero.taglineLead}
           <br className="hidden sm:block" />
           <span className="text-ink-200">
-            {' '}20+ years of UX transformation, OTT innovation, and enterprise design leadership.
+            {' '}
+            {siteContent.hero.taglineSub}
           </span>
         </motion.p>
 
@@ -124,21 +126,21 @@ export default function Hero() {
             onClick={() => handleScroll('#case-studies')}
             className="group flex items-center gap-2 px-7 py-3.5 bg-electric text-white font-semibold text-sm rounded-lg hover:bg-electric/90 transition-all duration-200 hover:shadow-[0_0_30px_rgba(79,142,247,0.35)]"
           >
-            View Case Studies
+            {siteContent.hero.primaryCtaLabel}
             <ArrowDown size={16} className="group-hover:translate-y-0.5 transition-transform" />
           </button>
           <a
-            href="/resume.pdf"
+            href={siteContent.assets.resumeFile}
             className="flex items-center gap-2 px-7 py-3.5 border border-ink-500 text-ink-200 font-semibold text-sm rounded-lg hover:border-ink-300 hover:text-ink-100 transition-all duration-200"
           >
-            Download Resume
+            {siteContent.hero.secondaryCtaLabel}
             <ExternalLink size={15} />
           </a>
           <button
             onClick={() => handleScroll('#contact')}
             className="px-7 py-3.5 text-ink-300 font-semibold text-sm hover:text-electric transition-colors duration-200"
           >
-            Let&apos;s Connect →
+            {siteContent.hero.tertiaryCtaLabel}
           </button>
         </motion.div>
 
@@ -149,12 +151,7 @@ export default function Hero() {
           transition={{ duration: 1, delay: 0.9 }}
           className="flex flex-wrap gap-8 sm:gap-12"
         >
-          {[
-            { value: '20+', label: 'Years of Design Leadership' },
-            { value: '100M+', label: 'Users Impacted' },
-            { value: '70+', label: 'Global Deployments' },
-            { value: '4×', label: 'Industry Awards' },
-          ].map((m) => (
+          {siteContent.hero.teaserMetrics.map((m) => (
             <div key={m.label}>
               <div className="text-2xl sm:text-3xl font-black text-ink-100 tabular-nums">
                 {m.value}
@@ -177,7 +174,9 @@ export default function Hero() {
           transition={{ duration: 1.6, repeat: Infinity }}
           className="w-px h-10 bg-gradient-to-b from-transparent via-ink-400 to-transparent"
         />
-        <span className="text-ink-400 text-xs tracking-widest uppercase">Scroll</span>
+        <span className="text-ink-400 text-xs tracking-widest uppercase">
+          {siteContent.hero.scrollLabel}
+        </span>
       </motion.div>
     </section>
   )

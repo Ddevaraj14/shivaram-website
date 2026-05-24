@@ -4,7 +4,7 @@ import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import Link from 'next/link'
 import { ArrowUpRight } from 'lucide-react'
-import { caseStudies } from '@/data/content'
+import { caseStudies, siteContent } from '@/data/content'
 
 const fadeUp = {
   initial: { opacity: 0, y: 32 },
@@ -31,7 +31,7 @@ export default function CaseStudiesSection() {
             >
               <div className="h-px w-8 bg-electric" />
               <span className="text-electric text-xs font-semibold tracking-widest uppercase">
-                Selected Work
+                {siteContent.caseStudiesSection.eyebrow}
               </span>
             </motion.div>
             <motion.h2
@@ -41,9 +41,9 @@ export default function CaseStudiesSection() {
               transition={{ duration: 0.7, delay: 0.1 }}
               className="text-4xl sm:text-5xl font-black text-ink-100 leading-tight tracking-tight"
             >
-              Transformation
+              {siteContent.caseStudiesSection.titleLine1}
               <br />
-              Case Studies
+              {siteContent.caseStudiesSection.titleLine2}
             </motion.h2>
           </div>
           <motion.p
@@ -53,8 +53,7 @@ export default function CaseStudiesSection() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="text-ink-400 text-base max-w-sm"
           >
-            Four executive-level stories of design-led transformation, organisational impact, and
-            measurable business outcomes.
+            {siteContent.caseStudiesSection.description}
           </motion.p>
         </div>
 
@@ -119,13 +118,13 @@ export default function CaseStudiesSection() {
                   {/* Bottom outcomes preview */}
                   <div className="mt-6 pt-6 border-t border-ink-600/30 flex items-center justify-between">
                     <span className="text-ink-400 text-xs">
-                      {cs.outcomes.length} key outcomes
+                      {cs.outcomes.length} {siteContent.caseStudiesSection.outcomesSuffix}
                     </span>
                     <span
                       className="text-xs font-semibold flex items-center gap-1 group-hover:gap-2 transition-all duration-200"
                       style={{ color: cs.accentColor }}
                     >
-                      Read case study <ArrowUpRight size={12} />
+                      {siteContent.caseStudiesSection.readLabel} <ArrowUpRight size={12} />
                     </span>
                   </div>
                 </div>

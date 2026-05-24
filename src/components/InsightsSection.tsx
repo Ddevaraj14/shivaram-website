@@ -2,7 +2,7 @@
 
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { articles } from '@/data/content'
+import { articles, siteContent } from '@/data/content'
 import { ArrowUpRight, Clock } from 'lucide-react'
 
 const fadeUp = {
@@ -28,7 +28,7 @@ export default function InsightsSection() {
         >
           <div className="h-px w-8 bg-electric" />
           <span className="text-electric text-xs font-semibold tracking-widest uppercase">
-            Thought Leadership
+            {siteContent.insightsSection.eyebrow}
           </span>
         </motion.div>
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-16">
@@ -39,7 +39,7 @@ export default function InsightsSection() {
             transition={{ duration: 0.7, delay: 0.1 }}
             className="text-4xl sm:text-5xl font-black text-ink-100 leading-tight tracking-tight"
           >
-            Insights &amp; Articles
+            {siteContent.insightsSection.title}
           </motion.h2>
           <motion.p
             variants={fadeUp}
@@ -48,7 +48,7 @@ export default function InsightsSection() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="text-ink-400 text-sm max-w-xs"
           >
-            Perspectives on design leadership, OTT strategy, AI experience, and the future of product.
+            {siteContent.insightsSection.description}
           </motion.p>
         </div>
 
@@ -95,7 +95,7 @@ export default function InsightsSection() {
           className="mt-10 text-center"
         >
           <p className="text-ink-400 text-sm">
-            More articles and perspectives coming soon.
+            {siteContent.insightsSection.footerCta}
           </p>
         </motion.div>
       </div>

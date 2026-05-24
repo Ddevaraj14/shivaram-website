@@ -2,21 +2,9 @@
 
 import { useRef, useEffect, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
+import { siteContent, type Metric } from '@/data/content'
 
-interface Metric {
-  value: string
-  numericEnd: number
-  suffix: string
-  label: string
-  sublabel: string
-}
-
-const metrics: Metric[] = [
-  { value: '20+', numericEnd: 20, suffix: '+', label: 'Years', sublabel: 'of Design Leadership' },
-  { value: '100M+', numericEnd: 100, suffix: 'M+', label: 'Users', sublabel: 'Impacted Globally' },
-  { value: '70+', numericEnd: 70, suffix: '+', label: 'Deployments', sublabel: 'Worldwide' },
-  { value: '4×', numericEnd: 4, suffix: '×', label: 'Industry Awards', sublabel: 'Recognised' },
-]
+const metrics: Metric[] = siteContent.metrics
 
 function CountUp({ end, suffix, started }: { end: number; suffix: string; started: boolean }) {
   const [count, setCount] = useState(0)

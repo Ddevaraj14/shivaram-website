@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import { siteContent } from '@/data/content'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -10,24 +11,16 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'Shivaram Kotari — Design Executive & Experience Transformation Leader',
-  description:
-    'Design Executive shaping AI-driven product experiences across global digital ecosystems. 20+ years leading UX transformation for OTT platforms, enterprise systems, and multi-device products used by 100M+ users.',
-  keywords: [
-    'UX Design',
-    'Design Executive',
-    'OTT',
-    'Product Design',
-    'Experience Strategy',
-    'AI Personalization',
-    'Design Leadership',
-  ],
-  authors: [{ name: 'Shivaram Kotari' }],
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
+  title: siteContent.metadata.title,
+  description: siteContent.metadata.description,
+  keywords: siteContent.metadata.keywords,
+  authors: [{ name: siteContent.metadata.author }],
   openGraph: {
-    title: 'Shivaram Kotari — Design Executive',
-    description:
-      'Design Executive shaping AI-driven product experiences across global digital ecosystems.',
+    title: siteContent.metadata.openGraphTitle,
+    description: siteContent.metadata.openGraphDescription,
     type: 'website',
+    images: [siteContent.metadata.openGraphImage],
   },
 }
 

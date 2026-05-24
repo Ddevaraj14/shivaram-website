@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { ArrowUpRight, CheckCircle } from 'lucide-react'
-import { CaseStudy } from '@/data/content'
+import { CaseStudy, siteContent } from '@/data/content'
 
 interface Props {
   cs: CaseStudy
@@ -91,20 +91,28 @@ export default function CaseStudyContent({ cs, others }: Props) {
         <div className="max-w-5xl mx-auto px-6 lg:px-10">
           <div className="grid lg:grid-cols-3 gap-8 lg:gap-12">
             <div className="lg:col-span-2">
-              <h2 className="text-ink-400 text-xs font-semibold tracking-widest uppercase mb-4">Overview</h2>
+              <h2 className="text-ink-400 text-xs font-semibold tracking-widest uppercase mb-4">
+                {siteContent.caseStudyPage.overviewLabel}
+              </h2>
               <p className="text-ink-200 text-lg leading-relaxed">{cs.description}</p>
             </div>
             <div className="space-y-4">
               <div>
-                <div className="text-ink-500 text-xs font-semibold tracking-widest uppercase mb-1">Company</div>
+                <div className="text-ink-500 text-xs font-semibold tracking-widest uppercase mb-1">
+                  {siteContent.caseStudyPage.companyLabel}
+                </div>
                 <div className="text-ink-100 font-semibold">{cs.company}</div>
               </div>
               <div>
-                <div className="text-ink-500 text-xs font-semibold tracking-widest uppercase mb-1">Period</div>
+                <div className="text-ink-500 text-xs font-semibold tracking-widest uppercase mb-1">
+                  {siteContent.caseStudyPage.periodLabel}
+                </div>
                 <div className="text-ink-100 font-semibold">{cs.period}</div>
               </div>
               <div>
-                <div className="text-ink-500 text-xs font-semibold tracking-widest uppercase mb-1">Focus Areas</div>
+                <div className="text-ink-500 text-xs font-semibold tracking-widest uppercase mb-1">
+                  {siteContent.caseStudyPage.focusAreasLabel}
+                </div>
                 <div className="space-y-1">
                   {cs.category.split(' · ').map((tag) => (
                     <div key={tag} className="text-ink-300 text-sm">{tag}</div>
@@ -119,7 +127,9 @@ export default function CaseStudyContent({ cs, others }: Props) {
       {/* Business Challenge */}
       <section className="py-16 lg:py-20 border-t border-ink-600/40 bg-ink-950">
         <div className="max-w-5xl mx-auto px-6 lg:px-10">
-          <h2 className="text-ink-400 text-xs font-semibold tracking-widest uppercase mb-8">Business Challenge</h2>
+          <h2 className="text-ink-400 text-xs font-semibold tracking-widest uppercase mb-8">
+            {siteContent.caseStudyPage.challengeLabel}
+          </h2>
           <div className="grid sm:grid-cols-2 gap-3">
             {cs.challenge.map((item, i) => (
               <motion.div
@@ -130,7 +140,9 @@ export default function CaseStudyContent({ cs, others }: Props) {
                 transition={{ delay: i * 0.07, duration: 0.5 }}
                 className="flex items-start gap-3 p-4 rounded-lg bg-ink-800/60 border border-ink-600/30"
               >
-                <span className="text-red-400 mt-0.5 shrink-0 text-base">✕</span>
+                <span className="text-red-400 mt-0.5 shrink-0 text-base">
+                  {siteContent.caseStudyPage.challengeSymbol}
+                </span>
                 <p className="text-ink-300 text-sm leading-relaxed">{item}</p>
               </motion.div>
             ))}
@@ -141,7 +153,9 @@ export default function CaseStudyContent({ cs, others }: Props) {
       {/* Strategic Approach */}
       <section className="py-16 lg:py-20 border-t border-ink-600/40">
         <div className="max-w-5xl mx-auto px-6 lg:px-10">
-          <h2 className="text-ink-400 text-xs font-semibold tracking-widest uppercase mb-8">Strategic Approach</h2>
+          <h2 className="text-ink-400 text-xs font-semibold tracking-widest uppercase mb-8">
+            {siteContent.caseStudyPage.approachLabel}
+          </h2>
           <div className="space-y-4">
             {cs.approach.map((item, i) => (
               <motion.div
@@ -175,10 +189,11 @@ export default function CaseStudyContent({ cs, others }: Props) {
       {/* Process Diagram */}
       <section className="py-16 lg:py-20 border-t border-ink-600/40 bg-ink-950">
         <div className="max-w-5xl mx-auto px-6 lg:px-10">
-          <h2 className="text-ink-400 text-xs font-semibold tracking-widest uppercase mb-8">Experience Ecosystem</h2>
+          <h2 className="text-ink-400 text-xs font-semibold tracking-widest uppercase mb-8">
+            {siteContent.caseStudyPage.ecosystemLabel}
+          </h2>
           <div className="flex flex-wrap items-center justify-center gap-3">
-            {['Discovery', 'Strategy', 'Design', 'Validation', 'Delivery', 'Iteration'].map(
-              (stage, i) => (
+            {siteContent.caseStudyPage.processStages.map((stage, i) => (
                 <div key={stage} className="flex items-center gap-3">
                   <div
                     className="px-5 py-3 rounded-lg border text-sm font-semibold text-center min-w-[120px]"
@@ -190,14 +205,25 @@ export default function CaseStudyContent({ cs, others }: Props) {
                   >
                     {stage}
                   </div>
-                  {i < 5 && (
-                    <svg width="20" height="2" className="text-ink-500 shrink-0">
-                      <line x1="0" y1="1" x2="20" y2="1" stroke="currentColor" strokeWidth="1.5" strokeDasharray="4 2" />
+                  {i < siteContent.caseStudyPage.processStages.length - 1 && (
+                    <svg
+                      width={siteContent.caseStudyPage.processConnectorSvg.width}
+                      height={siteContent.caseStudyPage.processConnectorSvg.height}
+                      className="text-ink-500 shrink-0"
+                    >
+                      <line
+                        x1={siteContent.caseStudyPage.processConnectorSvg.x1}
+                        y1={siteContent.caseStudyPage.processConnectorSvg.y1}
+                        x2={siteContent.caseStudyPage.processConnectorSvg.x2}
+                        y2={siteContent.caseStudyPage.processConnectorSvg.y2}
+                        stroke="currentColor"
+                        strokeWidth={siteContent.caseStudyPage.processConnectorSvg.strokeWidth}
+                        strokeDasharray={siteContent.caseStudyPage.processConnectorSvg.strokeDasharray}
+                      />
                     </svg>
                   )}
                 </div>
-              )
-            )}
+              ))}
           </div>
         </div>
       </section>
@@ -205,7 +231,9 @@ export default function CaseStudyContent({ cs, others }: Props) {
       {/* Outcomes */}
       <section className="py-16 lg:py-20 border-t border-ink-600/40">
         <div className="max-w-5xl mx-auto px-6 lg:px-10">
-          <h2 className="text-ink-400 text-xs font-semibold tracking-widest uppercase mb-8">Key Outcomes</h2>
+          <h2 className="text-ink-400 text-xs font-semibold tracking-widest uppercase mb-8">
+            {siteContent.caseStudyPage.outcomesLabel}
+          </h2>
           <div className="grid sm:grid-cols-2 gap-3">
             {cs.outcomes.map((item, i) => (
               <motion.div
@@ -227,7 +255,9 @@ export default function CaseStudyContent({ cs, others }: Props) {
       {/* Leadership Contribution */}
       <section className="py-16 lg:py-20 border-t border-ink-600/40 bg-ink-950">
         <div className="max-w-5xl mx-auto px-6 lg:px-10">
-          <h2 className="text-ink-400 text-xs font-semibold tracking-widest uppercase mb-6">Leadership Contribution</h2>
+          <h2 className="text-ink-400 text-xs font-semibold tracking-widest uppercase mb-6">
+            {siteContent.caseStudyPage.leadershipLabel}
+          </h2>
           <blockquote
             className="border-l-2 pl-8 py-2"
             style={{ borderColor: cs.accentColor }}
@@ -241,7 +271,9 @@ export default function CaseStudyContent({ cs, others }: Props) {
       {others.length > 0 && (
         <section className="py-16 lg:py-20 border-t border-ink-600/40">
           <div className="max-w-5xl mx-auto px-6 lg:px-10">
-            <h2 className="text-ink-400 text-xs font-semibold tracking-widest uppercase mb-8">More Case Studies</h2>
+            <h2 className="text-ink-400 text-xs font-semibold tracking-widest uppercase mb-8">
+              {siteContent.caseStudyPage.moreCaseStudiesLabel}
+            </h2>
             <div className="grid sm:grid-cols-2 gap-4">
               {others.map((other) => (
                 <Link key={other.slug} href={`/case-studies/${other.slug}`} className="group block">
@@ -277,7 +309,7 @@ export default function CaseStudyContent({ cs, others }: Props) {
             href="/"
             className="text-ink-400 hover:text-electric text-sm transition-colors flex items-center gap-2 justify-center"
           >
-            ← Back to portfolio
+            ← {siteContent.footer.caseStudyBackLabel}
           </Link>
         </div>
       </div>

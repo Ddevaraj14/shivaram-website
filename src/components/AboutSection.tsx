@@ -2,15 +2,9 @@
 
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
+import { siteContent } from '@/data/content'
 
-const expertise = [
-  { title: 'Product Vision', description: 'Defining experience direction that aligns product, business, and user goals across global markets.' },
-  { title: 'Design Leadership', description: 'Building and scaling world-class design organisations with strong culture, process, and craft.' },
-  { title: 'AI Personalisation', description: 'Pioneering AI-driven UX patterns for content discovery, recommendations, and adaptive experiences.' },
-  { title: 'Global Experience Strategy', description: 'Architecting coherent experience systems across multi-market, multi-platform, multi-brand ecosystems.' },
-  { title: 'Design Operations', description: 'Establishing governance, systems, and workflows that scale design quality without sacrificing velocity.' },
-  { title: 'Enterprise UX Transformation', description: 'Leading end-to-end transformation of product experience in complex enterprise environments.' },
-]
+const expertise = siteContent.aboutSection.expertise
 
 const fadeUp = {
   initial: { opacity: 0, y: 28 },
@@ -36,7 +30,9 @@ export default function AboutSection() {
               className="flex items-center gap-3 mb-6"
             >
               <div className="h-px w-8 bg-electric" />
-              <span className="text-electric text-xs font-semibold tracking-widest uppercase">About</span>
+              <span className="text-electric text-xs font-semibold tracking-widest uppercase">
+                {siteContent.aboutSection.eyebrow}
+              </span>
             </motion.div>
             <motion.h2
               variants={fadeUp}
@@ -45,11 +41,11 @@ export default function AboutSection() {
               transition={{ duration: 0.7, delay: 0.1 }}
               className="text-4xl sm:text-5xl font-black text-ink-100 leading-tight tracking-tight"
             >
-              Design Executive.
+              {siteContent.aboutSection.titleLine1}
               <br />
-              <span className="gradient-text">Experience Architect.</span>
+              <span className="gradient-text">{siteContent.aboutSection.titleLine2}</span>
               <br />
-              Strategic Leader.
+              {siteContent.aboutSection.titleLine3}
             </motion.h2>
           </div>
 
@@ -62,15 +58,10 @@ export default function AboutSection() {
             className="flex flex-col justify-center"
           >
             <p className="text-ink-300 text-lg leading-relaxed mb-6">
-              For over two decades, I have led design at the intersection of product strategy, technology,
-              and human experience — building organisations, frameworks, and ecosystems that transform how
-              people engage with digital products at global scale.
+              {siteContent.aboutSection.paragraph1}
             </p>
             <p className="text-ink-400 text-base leading-relaxed">
-              From architecting the UX foundation that powered 30+ global set-top deployments at NDS, to
-              leading AI-driven OTT experience transformation at Synamedia — my work sits at the convergence
-              of design craft, executive leadership, and business outcome thinking. I don&apos;t just design
-              products. I build design as a strategic capability.
+              {siteContent.aboutSection.paragraph2}
             </p>
           </motion.div>
         </div>
@@ -84,7 +75,7 @@ export default function AboutSection() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="text-ink-400 text-xs font-semibold tracking-widest uppercase mb-8"
           >
-            Areas of Strategic Expertise
+            {siteContent.aboutSection.expertiseTitle}
           </motion.h3>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-ink-600/30">
             {expertise.map((item, i) => (

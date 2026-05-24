@@ -3,6 +3,7 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { Linkedin, Mail, MapPin } from 'lucide-react'
+import { siteContent } from '@/data/content'
 
 const fadeUp = {
   initial: { opacity: 0, y: 28 },
@@ -37,7 +38,7 @@ export default function ContactSection() {
         >
           <div className="h-px w-8 bg-electric" />
           <span className="text-electric text-xs font-semibold tracking-widest uppercase">
-            Contact
+            {siteContent.contactSection.eyebrow}
           </span>
           <div className="h-px w-8 bg-electric" />
         </motion.div>
@@ -50,11 +51,11 @@ export default function ContactSection() {
           transition={{ duration: 0.8, delay: 0.1 }}
           className="text-5xl sm:text-6xl md:text-7xl font-black text-ink-100 leading-tight tracking-tight mb-6"
         >
-          Let&apos;s build
+          {siteContent.contactSection.headlineLine1}
           <br />
-          <span className="gradient-text">transformative</span>
+          <span className="gradient-text">{siteContent.contactSection.headlineLine2}</span>
           <br />
-          experiences.
+          {siteContent.contactSection.headlineLine3}
         </motion.h2>
 
         <motion.p
@@ -64,8 +65,7 @@ export default function ContactSection() {
           transition={{ duration: 0.7, delay: 0.25 }}
           className="text-ink-300 text-lg max-w-xl mx-auto mb-12 leading-relaxed"
         >
-          Available for Director / VP Design leadership roles, strategic consulting, and advisory
-          engagements across OTT, enterprise, and product organisations.
+          {siteContent.contactSection.description}
         </motion.p>
 
         {/* CTA buttons */}
@@ -77,20 +77,20 @@ export default function ContactSection() {
           className="flex flex-wrap gap-4 justify-center mb-16"
         >
           <a
-            href="mailto:shivaram.kotari@gmail.com"
+            href={`mailto:${siteContent.contactSection.email}`}
             className="group flex items-center gap-2 px-8 py-4 bg-electric text-white font-semibold rounded-lg hover:bg-electric/90 transition-all duration-200 hover:shadow-[0_0_40px_rgba(79,142,247,0.35)]"
           >
             <Mail size={16} />
-            Send an Email
+            {siteContent.contactSection.emailButtonLabel}
           </a>
           <a
-            href="https://www.linkedin.com/in/shivaramkotari"
+            href={siteContent.contactSection.linkedinUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 px-8 py-4 border border-ink-500 text-ink-200 font-semibold rounded-lg hover:border-electric hover:text-electric transition-all duration-200"
           >
             <Linkedin size={16} />
-            Connect on LinkedIn
+            {siteContent.contactSection.linkedinButtonLabel}
           </a>
         </motion.div>
 
@@ -104,16 +104,16 @@ export default function ContactSection() {
         >
           <div className="flex items-center gap-1.5">
             <MapPin size={13} />
-            <span>United Kingdom</span>
+            <span>{siteContent.contactSection.location}</span>
           </div>
           <span className="text-ink-600">·</span>
-          <span>Open to global opportunities</span>
+          <span>{siteContent.contactSection.availability}</span>
           <span className="text-ink-600">·</span>
           <a
-            href="mailto:shivaram.kotari@gmail.com"
+            href={`mailto:${siteContent.contactSection.email}`}
             className="hover:text-electric transition-colors"
           >
-            shivaram.kotari@gmail.com
+            {siteContent.contactSection.email}
           </a>
         </motion.div>
       </div>

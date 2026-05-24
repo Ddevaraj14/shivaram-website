@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { ArrowLeft, ArrowUpRight } from 'lucide-react'
-import { caseStudies } from '@/data/content'
+import { ArrowLeft } from 'lucide-react'
+import { caseStudies, siteContent } from '@/data/content'
 import CaseStudyContent from './CaseStudyContent'
 
 interface Props {
@@ -37,11 +37,13 @@ export default function CaseStudyPage({ params }: Props) {
             className="flex items-center gap-2 text-ink-300 hover:text-ink-100 transition-colors text-sm font-medium"
           >
             <ArrowLeft size={16} />
-            Back to Portfolio
+            {siteContent.caseStudyPage.backToPortfolioLabel}
           </Link>
           <div className="flex items-center gap-2">
             <div className="w-6 h-6 rounded bg-electric/10 border border-electric/20 flex items-center justify-center">
-              <span className="text-electric text-xs font-bold">SK</span>
+              <svg viewBox={siteContent.brand.logoSvg.viewBox} className="w-4 h-4 text-electric" fill="currentColor" aria-hidden="true">
+                <path d={siteContent.brand.logoSvg.path} />
+              </svg>
             </div>
           </div>
         </div>

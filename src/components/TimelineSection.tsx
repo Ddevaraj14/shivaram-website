@@ -2,7 +2,7 @@
 
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { timelineEntries } from '@/data/content'
+import { timelineEntries, siteContent } from '@/data/content'
 import { MapPin } from 'lucide-react'
 
 const fadeUp = {
@@ -28,7 +28,7 @@ export default function TimelineSection() {
         >
           <div className="h-px w-8 bg-electric" />
           <span className="text-electric text-xs font-semibold tracking-widest uppercase">
-            Experience
+            {siteContent.timelineSection.eyebrow}
           </span>
         </motion.div>
         <motion.h2
@@ -38,7 +38,7 @@ export default function TimelineSection() {
           transition={{ duration: 0.7, delay: 0.1 }}
           className="text-4xl sm:text-5xl font-black text-ink-100 leading-tight tracking-tight mb-16"
         >
-          Career Journey
+          {siteContent.timelineSection.title}
         </motion.h2>
 
         {/* Timeline */}

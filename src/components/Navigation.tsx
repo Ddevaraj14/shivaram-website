@@ -11,6 +11,7 @@ const navLinks = siteContent.navigation.links
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const [imageFailed, setImageFailed] = useState(false)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40)
@@ -42,14 +43,23 @@ export default function Navigation() {
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             className="flex items-center gap-2 group"
           >
-            <Image
-              src={siteContent.assets.profileImage}
-              alt={siteContent.brand.fullName}
-              width={36}
-              height={36}
-              className="h-9 w-9 rounded-full object-cover border border-electric/30"
-              priority
-            />
+            {imageFailed ? (
+              <div className="h-9 w-9 rounded-full bg-electric/10 border border-electric/30 flex items-center justify-center">
+                <span className="text-electric text-xs font-bold tracking-tight">
+                  {siteContent.brand.initials}
+                </span>
+              </div>
+            ) : (
+              <Image
+                src={siteContent.assets.profileImage}
+                alt={siteContent.brand.fullName}
+                width={36}
+                height={36}
+                className="h-9 w-9 rounded-full object-cover border border-electric/30"
+                onError={() => setImageFailed(true)}
+                priority
+              />
+            )}
             <span className="text-ink-100 font-semibold text-sm hidden sm:block tracking-wide">
               {siteContent.brand.fullName}
             </span>

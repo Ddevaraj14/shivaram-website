@@ -17,7 +17,8 @@
     "openGraphImage": "/images/og-banner.svg"
   },
   "assets": {
-    "resumeFile": "/resume.pdf"
+    "resumeFile": "/resume.pdf",
+    "profileImage": "/images/shivaram.jpg"
   },
   "brand": {
     "fullName": "Shivaram Kotari",

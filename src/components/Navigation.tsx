@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
+import Image from 'next/image'
 import { siteContent } from '@/data/content'
 
 const navLinks = siteContent.navigation.links
@@ -41,11 +42,14 @@ export default function Navigation() {
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             className="flex items-center gap-2 group"
           >
-            <div className="w-8 h-8 rounded-md bg-electric/10 border border-electric/20 flex items-center justify-center group-hover:bg-electric/20 transition-colors duration-200">
-              <svg viewBox={siteContent.brand.logoSvg.viewBox} className="w-5 h-5 text-electric" fill="currentColor" aria-hidden="true">
-                <path d={siteContent.brand.logoSvg.path} />
-              </svg>
-            </div>
+            <Image
+              src={siteContent.assets.profileImage}
+              alt={siteContent.brand.fullName}
+              width={36}
+              height={36}
+              className="h-9 w-9 rounded-full object-cover border border-electric/30"
+              priority
+            />
             <span className="text-ink-100 font-semibold text-sm hidden sm:block tracking-wide">
               {siteContent.brand.fullName}
             </span>

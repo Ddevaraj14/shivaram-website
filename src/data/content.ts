@@ -66,6 +66,7 @@ export interface SiteContent {
   }
   assets: {
     resumeFile: string
+    profileImage: string
   }
   brand: {
     fullName: string
